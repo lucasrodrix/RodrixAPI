@@ -25,23 +25,25 @@ $schema->create($tabela, function($table){
 	$table->text('descricao');
 	$table->text('preco', 11, 2);
 	$table->string('fabricante', 60);
-	$table->date('dt_criacao');
+	$table->timestamps();
 });
 
 // Popular tabela
 
 $db->table($tabela)->insert([
-	'titulo' => 'Smartphone motorola Moto G6 32GB Dual Chip',
-	'descricao' => 'Android Oreo - 8.0 Tela 5.7" Octa-Core 1.8 GHz 4G Câmera 12+5MP (Dual Traseira) - Índigo',
-	'preco' => 899.00,
-	'fabricante' => 'Motorola',
-	'dt_criacao' => '2020-01-10'
+	'titulo' => 'Smart TV LED 32" LG',
+	'descricao' => '3 HDMI, 2 USB, Bluetooth, Wi-Fi, Active HDR, ThinQ AI - 32LM621CBSB.A',
+	'preco' => 1199.00,
+	'fabricante' => 'LG',
+	'created_at' => '2020-01-10',
+	'updated_at' => '2020-01-10'
 ]);
 
 $db->table($tabela)->insert([
-	'titulo' => 'iPhone X Cinza Espacial 64GB',
-	'descricao' => 'Tela 5.8" iOS 12 4G Wi-Fi Câmera 12MP - Apple',
-	'preco' => 4999.00,
-	'fabricante' => 'Apple',
-	'dt_criacao' => '2020-01-10'
+	'titulo' => 'Tv Box Tv',
+	'descricao' => '3gb Ram , 16gb Rom sistema android wifi dual band 2 e 5 ghz',
+	'preco' => 248.76,
+	'fabricante' => 'Mm',
+	'created_at' => '2020-01-10',
+	'updated_at' => '2020-01-10'
 ]);
