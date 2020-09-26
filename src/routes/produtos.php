@@ -19,4 +19,18 @@ $app->group('/api/v1', function(){
 		$produtos = Produto::create($dados);
 		return $response->withJson($produtos);
 	});
+
+	//Listar produto com base em um ID
+	$this->get('/produtos/lista/{id}', function($request, $response, $args){
+		$produto = Produto::findOrFail($args['id']);
+		return $response->withJson($produto);
+	});	
+
+	//Atualiza produto com base em um ID
+	$this->put('/produtos/atualiza/{id}', function($request, $response, $args){
+		$dados = $request->getParsedBody();
+		$produto = Produto::findOrFail($args['id']);
+		$produto->update($dados);
+		return $response->withJson($produto);
+	});	
 });
