@@ -27,10 +27,21 @@ $app->group('/api/v1', function(){
 	});	
 
 	//Atualiza produto com base em um ID
-	$this->put('/produtos/atualiza/{id}', function($request, $response, $args){
+	$this->post('/produtos/atualiza/{id}', function($request, $response, $args){	
 		$dados = $request->getParsedBody();
 		$produto = Produto::findOrFail($args['id']);
 		$produto->update($dados);
 		return $response->withJson($produto);
-	});	
+	});
+
+	// Remove produto com base em um ID
+	$this->get('/produtos/remove/{id}', function($request, $response, $args){
+
+		$produto = Produto::findOrFail($args['id']);
+		$produto->delete();
+		return $response->withJson($produto);
+
+	});
+
+
 });
